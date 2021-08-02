@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   get '/' => 'sessions#index'
   
+  get '/signup' => 'users#new'
+
+  
   resources :markets
   resources :trades
   resources :cryptos
+
+  
   resources :users
 
 
