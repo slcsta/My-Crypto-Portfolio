@@ -5,5 +5,5 @@ class User < ApplicationRecord
   #validate uniqueness of email
 
   has_many :trades
-  has_many :cryptos, through :trades
+  has_many :cryptos, through: :trades
 end
