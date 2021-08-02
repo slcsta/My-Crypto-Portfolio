@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/", to: "sessions#index"
+  get "/", to: "welcome#index"
 
   get "/login", to: "sessions#new"
   

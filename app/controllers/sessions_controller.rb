@@ -1,8 +1,4 @@
 class SessionsController < ApplicationController 
-
-    def index
-        #action that takes us to our welcome page
-    end
     
     def new
 
