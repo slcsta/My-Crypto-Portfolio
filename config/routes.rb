@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get '/' => 'sessions#index'
+  get "/", to: "sessions#index"
+
+  get "/login", to: "sessions#new"
   
-  get '/signup' => 'users#new'
+  post "/login", to: "sessions#create"
+
+  get "/signup", to: "users#new"
 
   
   resources :markets
