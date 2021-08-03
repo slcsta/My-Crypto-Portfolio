@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   resources :markets
   resources :trades
   resources :cryptos
-
-  
   resources :users
 
 
