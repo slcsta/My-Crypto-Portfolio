@@ -15,5 +15,9 @@
 
     <%= link_to "Log Out", logout_path, method: :delete %>
 
+    <%= flash.each do |type, msg| %>
+      <%= msg %>
+    <% end %>
+
   </body>
 </html>
