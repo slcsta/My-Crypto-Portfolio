@@ -25,22 +25,17 @@ class SessionsController < ApplicationController
         user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
             u.email = auth['info']['email']
             u.username = auth['info']['name']
-            u.password = SecureRandom.hex[20]
+            u.password = SecureRandom.hex(20)
         end
+        
         if user.valid?
+            #byebug
             session[:user_id] = user.id
             flash[:message] = "Successful Login"
-            redirect_to user_path(@user)
+            redirect_to user_path
         else
-        
-        
+            redirect_to login_path
         end
-        #email
-        #password
-        #username
-        #uid
-        #provider
-        #byebug
     end
 
     def destroy
