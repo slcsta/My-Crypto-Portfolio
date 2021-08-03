@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   #validate presence of email and uniqueness of
   #validate uniqueness of username
-  validates :username, uniqueness: true, presence: true
+  validates :username, presence: true, uniqueness: true
 
   has_many :trades
   has_many :cryptos, through: :trades
