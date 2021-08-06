@@ -11,18 +11,22 @@
   </head>
 
   <body>
-
+  <nav>
+  <p>
+  <ul>
   <% if logged_in %>
-    <%= link_to "Log Out", logout_path, method: :delete %>
+    <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+  <% end %>
+  </ul>
+</p>
+</nav>
+  <div class="wrapper">
 
-    <% flash.each do |type, msg| %>
-      <%= msg %>
-    <% end %>
+  <% flash.each do |type, msg| %>
+    <%= msg %>
   <% end %>
     
     <%= yield %>
-
-    
-
-  </body>
+  
+    </body>
 </html>
