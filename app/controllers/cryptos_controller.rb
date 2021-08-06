@@ -1,13 +1,11 @@
 class CryptosController < ApplicationController
 
     def index
-    end
-
-    def new
+        @cryptos = Crypto.all
     end
 
     def show
     end
 
-    
+
 end

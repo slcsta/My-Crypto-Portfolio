@@ -18,6 +18,7 @@ class TradesController < ApplicationController
     end
 
     def edit
+        # rails knows it's an edit request if @trade already exists in the database
     end
 
     def delete
