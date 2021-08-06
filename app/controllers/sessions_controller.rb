@@ -13,10 +13,10 @@ class SessionsController < ApplicationController
     # 3. then set the session[:user_id] - 
             session[:user_id] = @user.id 
     # 4. redirect to the user landing page
-            flash[:message] = "Successful Login"
+            flash[:message] = "Successful log in!"
             redirect_to user_path(@user)
         else
-            flash[:error] = "Error! Incorrect login info. Please try again."
+            flash[:error] = "Error! Incorrect log in info. Please try again."
             redirect_to login_path
         end
     end
