@@ -1,0 +1,7 @@
+<h1>all trades</h1>
+
+<% @trades.each do |trade| %>
+    <%= trade.description %>
+    <%= trade.amount %>
+    <%= trade.price %>
+<% end %>
