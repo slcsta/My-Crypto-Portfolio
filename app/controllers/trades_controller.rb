@@ -15,6 +15,7 @@ class TradesController < ApplicationController
     end
 
     def show
+        @trade = Shoe.find_by_id(params[:id])
     end
 
     def edit
