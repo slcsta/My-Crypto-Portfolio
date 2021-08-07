@@ -1,0 +1,8 @@
+<h1>All Cryptos</h1>
+
+<% @cryptos.each do |crypto| %>
+    <%= crypto.name %>
+    <%= crypto.description %>
+    <%= crypto.symbol %>
+    <%- crypto.value %>
+<% end %>
