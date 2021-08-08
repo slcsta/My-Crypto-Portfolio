@@ -16,6 +16,7 @@
   <ul>
   <% if logged_in %>
     <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+    <li><%= link_to "Make a Trade", new_trade_path %></li>
   <% end %>
   </ul>
 </p>
