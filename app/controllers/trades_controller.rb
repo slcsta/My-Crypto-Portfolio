@@ -19,7 +19,8 @@ class TradesController < ApplicationController
     end
 
     def show
-        @trade = Shoe.find_by_id(params[:id])
+        @trade = Trade.find_by_id(params[:id])
+
     end
 
     def edit
@@ -34,7 +35,7 @@ class TradesController < ApplicationController
 
     # Only allow safe params
     def trade_params
-        params.require(:trade).permit(:description, :amount, :price)
+        params.require(:trade).permit(:description, :amount, :price, crypto_ids:[], cryptos_attributes: [:name])
     end
 end
 
