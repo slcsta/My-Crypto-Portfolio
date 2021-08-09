@@ -3,5 +3,5 @@ class Trade < ApplicationRecord
   belongs_to :user
 
 
-  accepts_nested_attributes_for :crypto, reject_if: ->(attributes){ attributes['name'].blank?}
+  #accepts_nested_attributes_for :crypto, reject_if: ->(attributes){ attributes['name'].blank?}
 end

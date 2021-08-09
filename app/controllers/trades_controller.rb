@@ -7,6 +7,7 @@ class TradesController < ApplicationController
 
     def new
         @trade = Trade.new
+        # @trade.build_crypto
     end
 
     def create
@@ -25,9 +26,22 @@ class TradesController < ApplicationController
 
     def edit
         # rails knows it's an edit request if @trade already exists in the database
+        @trade = Trade.find_by_id(params[:id])
+
     end
 
-    def delete
+    def update
+        @trade = Trade.find_by_id(params[:id])
+        @trade.update(trade_params)
+        if @trade.valid?
+            redirect_to trade_path(@trade)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        
     end
 
 

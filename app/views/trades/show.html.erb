@@ -2,3 +2,5 @@
 <%= @trade.description %>
 <%= @trade.amount %>
 <%= @trade.price %>
+<%= link_to "Edit", edit_trade_path(@trade) %>
+<%= link_to "Delete", trade_path(@trade), method: 'delete' %>
