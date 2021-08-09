@@ -12,7 +12,9 @@ class TradesController < ApplicationController
 
     def create
         @trade = Trade.new(trade_params)
+        # byebug
         if @trade.save
+            #byebug
             redirect_to trade_path(@trade)
         else
             render :new
