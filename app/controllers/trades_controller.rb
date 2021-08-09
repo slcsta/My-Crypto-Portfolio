@@ -21,7 +21,6 @@ class TradesController < ApplicationController
 
     def show
         @trade = Trade.find_by_id(params[:id])
-
     end
 
     def edit
@@ -41,7 +40,9 @@ class TradesController < ApplicationController
     end
 
     def destroy
-        
+        @trade = Trade.find_by_id(params[:id])
+        @trade.destroy
+        redirect_to trade_path(@trade)
     end
 
 
@@ -49,7 +50,7 @@ class TradesController < ApplicationController
 
     # Only allow safe params
     def trade_params
-        params.require(:trade).permit(:description, :amount, :price, crypto_ids:[], cryptos_attributes: [:name])
+        params.require(:trade).permit(:description, :amount, :price)
     end
 end
 
