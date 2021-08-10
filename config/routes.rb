@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   
-  resources :markets
-  resources :trades
-  resources :cryptos
-  resources :users
+  resources :markets, only: [:index]
+  
+  resources :trades, only: [:index]
+  resources :cryptos, only: [:index, :show] do
+    resources :trades, shallow: true
+  end
+  resources :users, only: [:create, :show, :edit]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
