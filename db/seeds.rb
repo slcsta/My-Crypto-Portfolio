@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 m = Market.create(name: "Crypto Market")
-m.crypto.create(name: "Bitcoin")
+m.cryptos.create(name: "Bitcoin")
+m.save
 # Crypto.create(name: "Etehereum", symbol: "ETH", value: 3043.90)
 # Crypto.create(name: "Dogecoin", symbol: "DOGE", value: 0.2437390)
 
