@@ -16,8 +16,8 @@
   <ul>
   <% if logged_in %>
   <li><%= link_to "Crypto Market", markets_path %></li>
-    <li><%= link_to "Make a Trade", new_trade_path %></li>
-    <li><%= link_to "See All Recent Trades", trades_path %></li>
+    <li><%= link_to "Select a Cryptocurrency", cryptos_path %></li>
+    <li><%= link_to "Recent Trades", trades_path %></li>
     <li><%= link_to "Log Out", logout_path, method: :delete %></li>
   <% end %>
   </ul>

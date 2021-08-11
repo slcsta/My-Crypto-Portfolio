@@ -5,6 +5,6 @@ class CryptosController < ApplicationController
     end
 
     def show
-        @crypto = find_by_id(params[:id])
+        @crypto = Crypto.find_by_id(params[:id])
     end
 end
