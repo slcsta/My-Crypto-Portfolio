@@ -7,6 +7,7 @@ class TradesController < ApplicationController
 
     def new
         @trade = Trade.new
+        #byebug
         # @trade.build_crypto
     end
 

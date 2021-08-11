@@ -1,7 +1,8 @@
 <h1>Make a New Trade</h1>
 
 <%= form_for(@trade) do |f| %>
-    <%= f.collection_select :crypto_id, Crypto.all, :id, :name, :value %>
+    <h3><%= current_crypto.name %></h3>
+    <h3><%= current_crypto.value %></h3>
     <br>
     <br>
     <%= f.label :description %>
