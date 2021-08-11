@@ -6,8 +6,8 @@ class TradesController < ApplicationController
     end
 
     def new
-        @trade = Trade.new
-        #byebug
+        @crypto = Crypto.find_by_id(params[:crypto_id])
+        @trade = @crypto.trades.build 
         # @trade.build_crypto
     end
 
@@ -53,7 +53,7 @@ class TradesController < ApplicationController
 
     # Only allow safe params
     def trade_params
-        params.require(:trade).permit(:description, :amount, :price)
+        params.require(:trade).permit(:description, :amount, :price, :crypto_id)
     end
 end
 
