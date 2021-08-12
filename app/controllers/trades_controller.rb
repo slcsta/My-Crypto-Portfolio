@@ -12,12 +12,14 @@ class TradesController < ApplicationController
     end
 
     def create
-        @trade = Trade.new(trade_params)
-        #byebug
+        @crypto = Crypto.find_by_id(params[:crypto_id])
+        @trade = @crypto.trades.build 
         if @trade.save
+            flash[:success] = "Trade successfully saved"
             #byebug
             redirect_to trade_path(@trade)
         else
+            flash.now[:error] = "Trade could not be saved"
             render :new
         end
     end
@@ -53,7 +55,7 @@ class TradesController < ApplicationController
 
     # Only allow safe params
     def trade_params
-        params.require(:trade).permit(:description, :amount, :price, :crypto_id)
+        params.require(:trade).permit(:crypto_id, :description, :amount, :price)
     end
 end
 

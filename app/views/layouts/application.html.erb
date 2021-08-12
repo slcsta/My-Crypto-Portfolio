@@ -13,14 +13,13 @@
   <body>
   <nav>
   <p>
-  <ul>
   <% if logged_in %>
-  <li><%= link_to "The Crypto Market", markets_path %></li>
-    <li><%= link_to "Select a Currency", cryptos_path %></li>
-    <li><%= link_to "Recent Trades", trades_path %></li>
-    <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+    <%= link_to "The Crypto Market", markets_path %> |
+    <%= link_to "Make a Trade", cryptos_path %></li> |
+    <%= link_to "My Trade Portfolio", user_path(current_user)%></li> |
+    <%= link_to "Recent Trades", trades_path %></li> |
+    <%= link_to "Log Out", logout_path, method: :delete %></li>
   <% end %>
-  </ul>
 </p>
 </nav>
   <div class="wrapper">

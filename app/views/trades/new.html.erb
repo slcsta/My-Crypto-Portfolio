@@ -11,9 +11,11 @@
     <br>
     <br>
     <%= f.label :price %>
-    <%= current_crypto.value  %>
+    <%= @trade.crypto.value  %>
     <br>
     <br>
+    <%= f.hidden_field :crypto_id.name %>
+    <%= f.hidden_field :cryptio_id.value
     <%= f.hidden_field :crypto_id %>
     <%= f.submit %>
 <% end %>

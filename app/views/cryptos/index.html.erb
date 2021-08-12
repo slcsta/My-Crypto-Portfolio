@@ -1,5 +1,5 @@
-<h1>All Cryptos</h1>
+<h1>Select a Currency</h1>
 
 <% @cryptos.each do |crypto| %>
-    <%= link_to crypto.name, cryptos_path %></br>
+    <%= link_to crypto.name, crypto_path(crypto) %></br>
 <% end %>
