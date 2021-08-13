@@ -1,6 +1,6 @@
 module TradesHelper
 
     def crypto_count(trade)
-        trade.amount * trade.crypto.value
+        trade.quantity * trade.crypto.price
     end 
 end

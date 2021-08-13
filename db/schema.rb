@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_113101) do
     t.string "name"
     t.string "description"
     t.string "symbol"
-    t.float "value"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "market_id"
@@ -30,8 +30,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_113101) do
 
   create_table "trades", force: :cascade do |t|
     t.string "description"
-    t.float "amount"
-    t.float "price"
+    t.float "quantity"
     t.integer "crypto_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

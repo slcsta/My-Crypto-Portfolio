@@ -1,6 +1,6 @@
 <h1> </h1>
 <%= @trade.description %>
-<%= @trade.amount %>
+<%= @trade.quantity %>
 <%= crypto_count(@trade) %>
 <%= link_to "Edit", edit_trade_path(@trade) %>
 <%= link_to "Delete", trade_path(@trade), method: 'delete' %>

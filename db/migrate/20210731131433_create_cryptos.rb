@@ -4,7 +4,7 @@ class CreateCryptos < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :description
       t.string :symbol
-      t.float :value
+      t.float :price
 
       t.timestamps
     end

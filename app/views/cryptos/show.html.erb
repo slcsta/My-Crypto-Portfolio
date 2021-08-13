@@ -5,8 +5,7 @@
 <p>Trades:</p>
 <%= @crypto.trades.each do |trade| %>
     <div><%= trade.description %></div>
-    <div><%= trade.amount %></div>
-    <div><%= trade.price %></div>
+    <div><%= trade.quantity %></div>
 <% end %>
     
 

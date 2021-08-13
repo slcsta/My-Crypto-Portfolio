@@ -70,7 +70,7 @@ class TradesController < ApplicationController
 
     # Only allow safe params
     def trade_params
-        params.require(:trade).permit(:description, :amount, :price, :crypto_id)
+        params.require(:trade).permit(:description, :quantity, :crypto_id)
     end
 end
 
