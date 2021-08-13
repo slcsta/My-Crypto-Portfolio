@@ -1,22 +1,16 @@
 <h1>Trade <%= @trade.crypto.name %> 
 - $<%= @trade.crypto.value %> each</h1>
 
-<%= form_for(@trade) do |f| %>
+<%= form_for([@crypto, @trade]) do |f| %>
     <%= f.label :description %>
     <%= f.text_field :description %>
     <br>
     <br>
-    <%= f.label :quantity %>
+    <%= f.label :amount %>
     <%= f.number_field :amount %>
     <br>
     <br>
-    <%= f.label :price %>
-    <%= @trade.crypto.value  %>
-    <br>
-    <br>
-    <%= f.hidden_field :crypto_id.name %>
-    <%= f.hidden_field :cryptio_id.value
-    <%= f.hidden_field :crypto_id %>
+    <%= f.hidden_field :crypto_id, value: @crypto.id %>
     <%= f.submit %>
 <% end %>
 

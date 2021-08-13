@@ -2,18 +2,29 @@ class TradesController < ApplicationController
     # I will need a before action here  
 
     def index
-        @trades = Trade.all
+        # if nested, then:
+        if params[:crypto_id] && crypto = Crypto.find_by_id(params[:crypto_id])
+            @trades = crypto.trades
+            # @trades = current_user.trades.by_crypto(params[:crypto_id])
+            # list only trades under that crypto
+        else
+            # all the trades not listed under crypto
+            @trades = Trade.all
+        end
     end
 
     def new
         @crypto = Crypto.find_by_id(params[:crypto_id])
         @trade = @crypto.trades.build 
-        # @trade.build_crypto
     end
 
     def create
-        @crypto = Crypto.find_by_id(params[:crypto_id])
-        @trade = @crypto.trades.build 
+        #byebug
+        @trade = current_user.trades.build(trade_params)
+        #@crypto = Crypto.find_by_id(params[:crypto_id])
+        # params[:crypto_id] && @crypto = Crypto.find_by_id(params[:crypto_id])
+        # @trade = Trade.new(crypto_id: params[:crypto_id])
+        #byebug
         if @trade.save
             flash[:success] = "Trade successfully saved"
             #byebug
@@ -25,7 +36,11 @@ class TradesController < ApplicationController
     end
 
     def show
-        @trade = Trade.find_by_id(params[:id])
+        if params[:crypto_id]
+            @trade = Crypto.find(params[:crypto_id]).trades.find(params[:id])
+        else
+            @trade = Trade.find(params[:id])
+        end
     end
 
     def edit
@@ -55,7 +70,7 @@ class TradesController < ApplicationController
 
     # Only allow safe params
     def trade_params
-        params.require(:trade).permit(:crypto_id, :description, :amount, :price)
+        params.require(:trade).permit(:description, :amount, :price, :crypto_id)
     end
 end
 

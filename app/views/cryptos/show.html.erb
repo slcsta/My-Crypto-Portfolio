@@ -1,8 +1,12 @@
-<h1>Crypto Show Page</h1>
-<h3><%= @crypto.name %></h3>
-<%= @crypto.description %>
-<%= @crypto.symbol %>
-<%= @crypto.value %>
-</br>
-<%= link_to "Make a Trade", new_crypto_trade_path(@crypto) %>
+<h1><%= @crypto.name %></h1>
+
+<%= link_to "New Trade", new_crypto_trade_path(@crypto) %>
+
+<p>Trades:</p>
+<%= @crypto.trades.each do |trade| %>
+    <div><%= trade.description %></div>
+    <div><%= trade.amount %></div>
+    <div><%= trade.price %></div>
+<% end %>
+    
 
