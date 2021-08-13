@@ -5,7 +5,7 @@ class TradesController < ApplicationController
         # if nested, then list only those trades under that crypto:
         if params[:crypto_id] && crypto = Crypto.find_by_id(params[:crypto_id])
             @trades = crypto.trades
-            
+
         else
             # all the trades not listed under crypto
             @trades = Trade.order_by_created_at
@@ -25,11 +25,11 @@ class TradesController < ApplicationController
         # @trade = Trade.new(crypto_id: params[:crypto_id])
         #byebug
         if @trade.save
-            flash[:success] = "Trade successfully saved"
+            flash[:success] = "Success! Your trade is saved!"
             #byebug
             redirect_to trade_path(@trade)
         else
-            flash.now[:error] = "Trade could not be saved"
+            flash.now[:error] = "Error! Trade failed!"
             render :new
         end
     end
@@ -45,7 +45,6 @@ class TradesController < ApplicationController
     def edit
         # rails knows it's an edit request if @trade already exists in the database
         @trade = Trade.find_by_id(params[:id])
-
     end
 
     def update
@@ -61,7 +60,7 @@ class TradesController < ApplicationController
     def destroy
         @trade = Trade.find_by_id(params[:id])
         @trade.destroy
-        redirect_to trade_path(@trade)
+        redirect_to trades_path
     end
 
 

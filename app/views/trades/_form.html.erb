@@ -1,0 +1,11 @@
+<%= render partial: "layouts/errors", locals:{object: @trade} %>
+
+<%= form_for([@crypto, @trade]) do |f| %>
+    <%= f.label :description %>
+    <%= f.text_field :description %><br/>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %><br/>
+    <%= f.hidden_field :created_at, value: @trade.created_at %>
+    <%= crypto_fields(f) %>
+    <%= f.submit %>
+<% end %>
