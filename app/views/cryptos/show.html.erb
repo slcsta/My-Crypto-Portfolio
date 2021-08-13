@@ -2,10 +2,10 @@
 
 <%= link_to "New Trade", new_crypto_trade_path(@crypto) %>
 
-<p>Trades:</p>
-<%= @crypto.trades.each do |trade| %>
-    <div><%= trade.description %></div>
-    <div><%= trade.quantity %></div>
-<% end %>
+<h3><%= @crypto.description %></h3>
+<h3><%= @crypto.symbol %> - $
+<%= @crypto.price %> USD</h3>
     
+
+
 

@@ -1,6 +1,11 @@
-<h1>all trades</h1>
+<h1>What Are Users Trading?</h1>
+<h3>The Last 50 Trades</h3>
+    <% @trades.each do |trade| %>
+        <%= trade.quantity %>
+        <%= trade.crypto.name %> on
+        <%= date_time(trade) %>
+    <% end %>
 
-<% @trades.each do |trade| %>
-    <%= trade.description %>
-    <%= trade.quantity %>
-<% end %>
+    
+    
+    

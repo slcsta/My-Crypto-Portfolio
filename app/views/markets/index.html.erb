@@ -1,1 +1,5 @@
-<h1>all of the markets</h1>
+<h1>Crypto Market</h1>
+
+<% @cryptos.each do |crypto| %>
+    <%= link_to crypto.name, crypto_path(crypto) %></br>
+<% end %>

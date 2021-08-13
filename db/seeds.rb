@@ -8,6 +8,8 @@
 Market.destroy_all
 Crypto.destroy_all
 
+User.create(username: "Sid", email: "sid@gmail.com")
+
 m = Market.create!(name: "Crypto Market")
 m.cryptos.create!(name: "Bitcoin", symbol: "BTC", price: 45365.00)
 m.cryptos.create!(name: "Etehereum", symbol: "ETH", price: 3043.90)

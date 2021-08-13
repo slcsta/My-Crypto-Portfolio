@@ -5,10 +5,7 @@ class Trade < ApplicationRecord
   validates :description, presence: true
   validates :quantity, presence: true, numericality: {greater_than: 0}
   
-  def self.date_time
-
-    order()
-
-  end
-  
 end
+
+
+
