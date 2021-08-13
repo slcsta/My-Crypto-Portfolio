@@ -2,14 +2,13 @@ class TradesController < ApplicationController
     # I will need a before action here  
 
     def index
-        # if nested, then:
+        # if nested, then list only those trades under that crypto:
         if params[:crypto_id] && crypto = Crypto.find_by_id(params[:crypto_id])
             @trades = crypto.trades
-            # @trades = current_user.trades.by_crypto(params[:crypto_id])
-            # list only trades under that crypto
+            
         else
             # all the trades not listed under crypto
-            @trades = Trade.all
+            @trades = Trade.order_by_created_at
         end
     end
 
@@ -21,7 +20,7 @@ class TradesController < ApplicationController
     def create
         #byebug
         @trade = current_user.trades.build(trade_params)
-        #@crypto = Crypto.find_by_id(params[:crypto_id])
+        @crypto = Crypto.find_by_id(params[:crypto_id])
         # params[:crypto_id] && @crypto = Crypto.find_by_id(params[:crypto_id])
         # @trade = Trade.new(crypto_id: params[:crypto_id])
         #byebug

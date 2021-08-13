@@ -1,3 +1,4 @@
+<%= render partial: "layouts/errors", locals:{object: @trade} %>
 
 <h1>Trade <%= @trade.crypto.name %> 
 - $<%= @trade.crypto.price %> each</h1>

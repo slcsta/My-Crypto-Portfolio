@@ -11,7 +11,8 @@ at $<%= @trade.crypto.price %> each</h1>
     <%= f.number_field :quantity %>
     <br>
     <br>
-    <%= f.hidden_field :created_at, value: @trade.created_at %>
+    <%= f.hidden_field :crypto_id, value: @crypto.id %>
+    <%= f.submit %>
     
     <%= f.submit %>
 <% end %>
