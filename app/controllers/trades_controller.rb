@@ -62,7 +62,7 @@ class TradesController < ApplicationController
     def destroy
         # @trade = Trade.find_by_id(params[:id])
         @trade.destroy
-        redirect_to trades_path
+        redirect_to user_path(current_user)
     end
 
 

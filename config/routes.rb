@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   
   resources :markets, only: [:index]
-  
   resources :trades, only: [:index]
   resources :cryptos, only: [:index, :show] do
     resources :trades, shallow: true
