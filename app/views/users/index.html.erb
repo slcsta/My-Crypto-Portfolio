@@ -1,0 +1,8 @@
+<h1><%= current_user.username %>'s Portfolio of Trades Page</h1>
+
+<% current_user.trades.each do |trade| %>
+    <%= link_to trade.crypto.name, trade_path(trade) %>
+    <%= date_time(trade) %>
+<% end %>
+
+<% end %>

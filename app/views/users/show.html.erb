@@ -1,3 +1,10 @@
 <h1><%= current_user.username %> Page</h1>
 
 
+<% current_user.trades.each do |trade| %>
+    <%= trade.quantity %>
+    <%= trade.crypto.name %> on
+    <%= date_time(trade) %>
+    <%= trade.description
+<% end %>
+
