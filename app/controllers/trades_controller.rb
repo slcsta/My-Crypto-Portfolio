@@ -1,4 +1,6 @@
 class TradesController < ApplicationController
+    before_action :redirect_if_not_logged_in?
+    before_action :find_trade, only: [:edit, :update, :destroy] 
     # I will need a before action here  
 
     def index
@@ -44,11 +46,11 @@ class TradesController < ApplicationController
 
     def edit
         # rails knows it's an edit request if @trade already exists in the database
-        @trade = Trade.find_by_id(params[:id])
+        # @trade = Trade.find_by_id(params[:id])
     end
 
     def update
-        @trade = Trade.find_by_id(params[:id])
+        # @trade = Trade.find_by_id(params[:id])
         @trade.update(trade_params)
         if @trade.valid?
             redirect_to trade_path(@trade)
@@ -58,7 +60,7 @@ class TradesController < ApplicationController
     end
 
     def destroy
-        @trade = Trade.find_by_id(params[:id])
+        # @trade = Trade.find_by_id(params[:id])
         @trade.destroy
         redirect_to trades_path
     end
@@ -69,6 +71,10 @@ class TradesController < ApplicationController
     # Only allow safe params
     def trade_params
         params.require(:trade).permit(:description, :quantity, :crypto_id)
+    end
+
+    def find_trade
+        @trade = Trade.find_by_id(params[:id])
     end
 end
 
