@@ -1,12 +1,12 @@
 class TradesController < ApplicationController
     before_action :redirect_if_not_logged_in?
-    before_action :find_trade, only: [:edit, :update, :destroy] 
-    # I will need a before action here  
+    before_action :find_trade, only: [:edit, :update, :destroy]   
 
     def index
         # if nested, then list only those trades under that crypto:
-        if params[:crypto_id] && crypto = Crypto.find_by_id(params[:crypto_id])
-            @trades = crypto.trades
+        if params[:crypto_id] && @crypto = Crypto.find_by_id(params[:crypto_id])
+            # put in find here and have an active record error here
+            @trades = crypto.trades.order_by_created_at
 
         else
             # all the trades not listed under crypto
