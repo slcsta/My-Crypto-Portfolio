@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Market.destroy_all
-Crypto.destroy_all
+# Market.destroy_all
+# Crypto.destroy_all
 
 #User.create(username: "Sid", email: "sid@gmail.com")
 
@@ -31,4 +31,5 @@ m.cryptos.create!(name: "Polygon", symbol: "MATIC", price: 1.41)
 m.cryptos.create!(name: "Wrapped Bitcoin", symbol: "WBTC", price: 45923.26)
 m.cryptos.create!(name: "Stellar", symbol: "XLM", price: 0.37832220)
 m.cryptos.create!(name: "Internet Computer", symbol: "ICP", price: 60.89)
+m.save
 

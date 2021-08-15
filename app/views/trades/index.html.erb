@@ -12,11 +12,13 @@
     <h1>Last 10 Trades</h1>
 <% end %>
     <h3>See what others are trading:</h3>
+    <ul>
     <% @trades.each do |trade| %>
-        <%= trade.quantity %>
+        <li><%= trade.quantity %>
         <%= trade.crypto.name %> on
-        <%= date_time(trade) %>
+        <%= date_time(trade) %></li>
     <% end %>
+    </ul>
 
     
     

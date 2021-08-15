@@ -7,6 +7,10 @@ class TradesController < ApplicationController
         if params[:crypto_id] && @crypto = Crypto.find_by_id(params[:crypto_id])
             # put in find here and have an active record error here
             @trades = @crypto.trades.order_by_created_at
+        # else
+        #     flash[:alert] = "Crypto not found"
+        #     redirect_to cryptos_path
+        # end
 
         else
             # all the trades not listed under crypto

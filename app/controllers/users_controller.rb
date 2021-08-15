@@ -9,7 +9,8 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:message] = "Successful sign up!"
-            redirect_to user_path(@user) 
+            # redirect_to user_path(@user) 
+            redirect_to '/'
         else 
             flash[:error] = "Error! Please try again."
             render :new
