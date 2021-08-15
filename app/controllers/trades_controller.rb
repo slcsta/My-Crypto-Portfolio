@@ -6,7 +6,7 @@ class TradesController < ApplicationController
         # if nested, then list only those trades under that crypto:
         if params[:crypto_id] && @crypto = Crypto.find_by_id(params[:crypto_id])
             # put in find here and have an active record error here
-            @trades = crypto.trades.order_by_created_at
+            @trades = @crypto.trades.order_by_created_at
 
         else
             # all the trades not listed under crypto

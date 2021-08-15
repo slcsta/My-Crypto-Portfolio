@@ -1,9 +1,11 @@
-<h1><%= current_user.username %>'s Portfolio of Trades</h1>
+<h1><%= current_user.username %>'s Trades</h1>
 
 
 <% current_user.trades.each do |trade| %>
     <%= trade.quantity %>
-    <%= trade.crypto.name %><br>
+    <%= trade.crypto.name %>
+    at <%= trade.crypto.price %> each<br>
+    Trade Total: $ <%= crypto_count(trade) %> in USD<br>
     <%= date_time(trade) %><br>
     <%= trade.description %>
     <p><%= link_to "Edit", edit_trade_path(trade) %>
