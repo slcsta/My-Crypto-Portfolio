@@ -1,15 +1,11 @@
-<h1>login form</h1>
-
+<h1>My Crypto Portfolio</h1>
+<fieldset>
+<legend>Log In</legend>
 <%= form_for(:user) do |f| %>
-    <br>
-    <br>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <br>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br>
-    <br>
+    <%= f.label :email %>:<br />
+    <%= f.text_field :email %><br />
+    <%= f.label :password %>:<br />
+    <%= f.password_field :password %><br />
     <%= f.submit "Log In" %>
 <% end %>
+</fieldset>

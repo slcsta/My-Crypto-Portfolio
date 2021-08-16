@@ -1,14 +1,10 @@
 <h1>Completed Trade</h1>
 
-Currency: <%= @trade.crypto.name %>
-<br>
-Trade Description: <%= @trade.description %>
-<br>
-Quantity Purchased: <%= @trade.quantity %>
-<br>
-Trade Total: $ <%= crypto_count(@trade) %>/USD
-<br>
+Currency: <%= @trade.crypto.name %><br>
+Trade Description: <%= @trade.description %><br>
+Quantity Purchased: <%= @trade.quantity %><br>
+Trade Total: $ <%= crypto_count(@trade) %>/USD<br>
 Traded on: <%= date_time(@trade) %>
 
-<p><%= link_to "Edit", edit_trade_path(@trade) %>
+<p><%= link_to "Edit", edit_trade_path(@trade) %> |
 <%= link_to "Delete", trade_path(@trade), method: 'delete' %></p>
