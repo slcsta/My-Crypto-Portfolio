@@ -1,10 +1,18 @@
-<h1>Crypto Market</h1>
-<ul>
-<% @markets.each do |market| %>
-    <% market.cryptos.each do |crypto| %>
-       <li><%= link_to crypto.name, crypto_path(crypto) %>
-        <%= crypto.symbol %>
-        <%= crypto.price %></li>
-    <% end %>
-</ul>
-<% end %>
+<h1>Crypto Market Snapshot</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <% @markets.each do |market| %>
+            <% market.cryptos.each do |crypto| %>
+                <tr><th><%= link_to crypto.name, crypto_path(crypto) %></th>
+                <td><%= crypto.symbol %></td>
+                <td><%= crypto.price %></td>
+            <% end %></tr>
+        <% end %>
+    </tbody>
