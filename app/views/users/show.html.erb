@@ -1,14 +1,40 @@
-<h1><%= current_user.username %>'s Trades</h1>
+<div class="container">
+    <div class="page-header">
+    <h1><%= current_user.username %>'s Portfolio</h1>
+    <h4><span class="label label-primary">Trades</span></h4>
+    </div>
+</div>
 
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Crypto Name</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Date & Time</th>
+                <th>Description</th>
+                <th>Modify Trade</th>
+            </tr>
+        </thead>
+        
+        <tbody> 
+        <% current_user.trades.each do |trade| %>
+            <tr><th><%= trade.quantity %></th>
+            <td><%= trade.crypto.name %></td>
+            <td><%= trade.crypto.price %></td>
+            <td>$ <%= crypto_count(trade) %> in USD</td>
+            <td><%= date_time(trade) %></td>
+            <td><%= trade.description %></td>
+            <td><%= link_to "Edit", edit_trade_path(trade) %>
+            <%= link_to "Delete", trade_path(trade), method: 'delete' %></td>
+        <% end %></tr>
+        </tbody>
+    </table>
+</div>    
 
-<% current_user.trades.each do |trade| %>
-    <%= trade.quantity %>
-    <%= trade.crypto.name %>
-    at <%= trade.crypto.price %> each<br>
-    Trade Total: $ <%= crypto_count(trade) %> in USD<br>
-    <%= date_time(trade) %><br>
-    <%= trade.description %>
-    <p><%= link_to "Edit", edit_trade_path(trade) %>
-    <%= link_to "Delete", trade_path(trade), method: 'delete' %></p>
-<% end %>
+        
+       
+
 
