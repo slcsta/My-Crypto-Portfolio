@@ -1,7 +1,7 @@
 class CryptosController < ApplicationController
 
     def index
-        @cryptos = Crypto.all
+        @cryptos = Crypto.all.order_by_price 
     end
 
     def show

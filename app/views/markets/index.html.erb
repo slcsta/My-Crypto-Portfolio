@@ -15,13 +15,12 @@
             </tr>
         </thead>
         <tbody> 
-        <% @markets.each do |market| %>
-            <% market.cryptos.each do |crypto| %>
-                <tr><th><%= link_to crypto.name, crypto_path(crypto) %></th>
-                <td><%= crypto.symbol %></td>
-                <td><%= crypto.price %></td>
-            <% end %></tr>
-        <% end %>
+        <% @cryptos.each do |crypto| %>
+            <tr><th><%= link_to crypto.name, crypto_path(crypto) %></th>
+                    <td><%= crypto.symbol %></td>
+                    <td>$ <%= crypto.price %> USD</td>
+                <% end %></tr>    
+    
         </tbody>
     </table>
 </div>    

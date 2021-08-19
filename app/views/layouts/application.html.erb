@@ -11,8 +11,7 @@
   </head>
 
   <body>
-  <nav>
-  <p>
+  <div id="nav">
   <% if logged_in %>
     <%= link_to "Crypto Market", markets_path %> |
     <%= link_to "Make a Trade", cryptos_path %></li> |
@@ -20,8 +19,7 @@
     <%= link_to "Last 10 Trades", trades_path %></li> |
     <%= link_to "Log Out", logout_path, method: :delete %></li>
   <% end %>
-</p>
-</nav>
+</div>
   <div class="wrapper">
 
   <% flash.each do |type, msg| %>

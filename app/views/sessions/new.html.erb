@@ -1,7 +1,9 @@
 <div class="container p-3 my-3 border">
-<h1>Log In</h1>
+<h1>My Crypto Portfolio</h1>
+
 </div>
 <div class="container p-3 my-3 border">
+<h3>Log In</h3>
 <%= form_for(:user) do |f| %>
     <div class="form-group">
         <%= f.label :email %>
@@ -13,7 +15,15 @@
     </div>
     <%= f.submit "Log In", class:"btn btn-outline-success" %>
 <% end %>
+
+<% if !logged_in %>
+    <div class="form-group">
+            Don't have an account yet? Click here: <%= link_to "Sign Up", signup_path %>
+            <%= button_to "Sign in with Google", "/auth/google_oauth2"%>
+        </div>
+<% end %>
 </div>
+
 
 
 
