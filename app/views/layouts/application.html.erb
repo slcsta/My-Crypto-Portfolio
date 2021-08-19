@@ -9,24 +9,45 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <head>
+  <title>Grid Layout</title>
+  <link rel="stylesheet" type="text/css"
+    href="css/960_12_col.css" />
+  </head>
   <body>
-  <div id="nav">
-  <% if logged_in %>
-    <%= link_to "Crypto Market", markets_path %> |
-    <%= link_to "Make a Trade", cryptos_path %></li> |
-    <%= link_to "My Trades", user_path(current_user)%></li> |
-    <%= link_to "Last 10 Trades", trades_path %></li> |
-    <%= link_to "Log Out", logout_path, method: :delete %></li>
-  <% end %>
-</div>
-  <div class="wrapper">
-
-  <% flash.each do |type, msg| %>
-    <%= msg %>
-  <% end %>
-    
-    <%= yield %>
+  <div class="container_12" clearfix">
+    <div id="header" class="grid_12">
+      <h1>My Crypto Portfolio</>
+        <div id="nav">
+        <ul>
+        <% if !logged_in %>
+            <li><%= link_to "Log In", login_path %></li>
+            <li><%= link_to "Sign Up", signup_path %></li>
+            <li><%= button_to "Sign in with Google", "/auth/google_oauth2"%></li>
+        <% end %>
+        <% if logged_in %>
+            <li><%= link_to "Crypto Market", markets_path %></li>
+            <li><%= link_to "Make a Trade", cryptos_path %></li>
+            <li><%= link_to "My Trades", user_path(current_user)%></li>
+            <li><%= link_to "Last 10 Trades", trades_path %></li>
+            <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+        <% end %>
+          </ul>
+        </div>
+    </div>
+  </div>
   
-    </body>
+  <div class="wrapper">
+    <% flash.each do |type, msg| %>
+      <%= msg %>
+    <% end %>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
 </html>
