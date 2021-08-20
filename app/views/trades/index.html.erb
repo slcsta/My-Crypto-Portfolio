@@ -1,5 +1,5 @@
+
 <% if @crypto %>
-    
     <h1><%= @crypto.symbol %> - $
     <%= @crypto.price %> USD</h1>
     <h3><%= @crypto.description %></h3>
@@ -7,18 +7,32 @@
     <h3><%= link_to "Make a New Trade", new_crypto_trade_path(@crypto) %></h3>
 
     <h3>Last 10 <%= @crypto.name %> Trades</h3>
-
 <% else %>
-    <h1>Last 10 Trades</h1>
+    <h3>Last 10 Trades</h3>
 <% end %>
-    <h3>See what others are trading:</h3>
-    <ul>
-    <% @trades.each do |trade| %>
-        <li><%= trade.quantity %>
-        <%= trade.crypto.name %> on
-        <%= date_time(trade) %></li>
-    <% end %>
-    </ul>
+<div class="container">
+    <div class="page-header">
+
+<h3>See what others are trading:</h3>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Crypto</th>
+                <th>Date & Time</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <% @trades.each do |trade| %>
+                <tr><th><%= trade.quantity %></th>
+                <td><%= trade.crypto.name %></td>
+                <td><%= date_time(trade) %></td>
+            <% end %></tr>
+        </tbody>
+    </table>
+</div>    
+
 
     
     

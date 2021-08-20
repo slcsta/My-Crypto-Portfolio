@@ -1,7 +1,4 @@
-<div class="container p-3 my-3 border">
-<h1>My Crypto Portfolio</h1>
 
-</div>
 <div class="container p-3 my-3 border">
 <h3>Log In</h3>
 <%= form_for(:user) do |f| %>
@@ -14,7 +11,7 @@
         <%= f.password_field :password, {class:"form-control", placeholder:"Enter password"} %>
     </div>
     <%= f.submit "Log In", class:"btn btn-outline-success" %>
-<% end %>
+<% end %><br />
 
 <% if !logged_in %>
     <div class="form-group">

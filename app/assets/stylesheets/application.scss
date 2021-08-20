@@ -14,7 +14,18 @@
  *= require_self
  */
  @import "bootstrap";
+ 
+ img{
+     border: 5px solid #555
+ }
 
+ .text-center{
+     text-align: center;
+     display: block;
+     margin: 0 auto;
+     width: 15%;
+ }
+ 
  h1 {
      text-align: center;
  }
@@ -23,18 +34,30 @@
     text-align: center;
 }
 
+body {
+    background-color: lightblue;
+} 
+
 * {
     font-family: Arial, Verdana, sans-serif;
     color: #665544;
-    text-align: center;}
+    text-align: left;
+}
 #nav, #feature, .article, #footer {
     font-size: 20px;
-    background-color: #efefef;
+    background-color: white;
     margin-top: 20px;
-    padding: 10px 0px 5px 0px;}
-#feature, .article {
-    height: 100px;}
+    padding: 10px 0px 5px 0px;
+    
+}
+#nav, #feature, .article {
+    height: 50px;
+}
+ul {
+    text-align: center;
+}
 li {
     display: inline;
-    padding: 5x;}
-
+    margin-right: 70px;
+    padding-top: 35px;
+}

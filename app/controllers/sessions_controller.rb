@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
     # 4. redirect to the user landing page
             flash[:message] = "Successful log in!"
-            #redirect_to '/'
-            redirect_to user_path(@user)
+            redirect_to '/'
+            #redirect_to user_path(@user)
         else
             flash[:error] = "Error! Incorrect log in info. Please try again."
             redirect_to login_path
@@ -32,9 +32,11 @@ class SessionsController < ApplicationController
         if user.valid?
             #byebug
             session[:user_id] = user.id
-            flash[:message] = "Successful Login"
-            redirect_to user_path(user)
+            flash[:message] = "Successful Login!"
+            # redirect_to user_path(user)
+            redirect_to '/'
         else
+            flash[:error] = "Error! Please try again."
             redirect_to '/'
         end
     end

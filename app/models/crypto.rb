@@ -6,7 +6,7 @@ class Crypto < ApplicationRecord
     #scope :order_by_price, -> {order(:price)}
 
     def self.order_by_price
-        self.joins(:market).order("markets.id").order("cryptos.price")
+        self.joins(:market).order("markets.id").order("cryptos.price DESC")
     end
 
 end
