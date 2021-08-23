@@ -50,7 +50,7 @@ class TradesController < ApplicationController
 
     def edit
         # rails knows it's an edit request if @trade already exists in the database
-        # @trade = Trade.find_by_id(params[:id])
+        #@trade = Trade.find_by_id(params[:id])
     end
 
     def update

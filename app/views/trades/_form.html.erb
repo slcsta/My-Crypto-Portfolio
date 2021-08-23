@@ -1,11 +1,22 @@
 <%= render partial: "layouts/errors", locals:{object: @trade} %>
 
+<div class="container p-3 my-3 border">
 <%= form_for([@crypto, @trade]) do |f| %>
-    <%= f.label :description %>
-    <%= f.text_field :description %><br/>
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %><br/>
-    <%= f.hidden_field :created_at, value: @trade.created_at %>
-    <%= crypto_fields(f) %>
-    <%= f.submit %>
-<% end %>
+    <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, {class:"form-control", placeholder:"Enter description"} %>
+    </div>
+    <div class="form-group">
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, {class:"form-control", placeholder:"Enter quantity"} %><br/>
+    </div>
+        <%= f.hidden_field :created_at, value: @trade.created_at %>
+        <%= crypto_fields(f) %>
+        <%= f.submit "Make Trade", class:"btn btn-outline-success" %>
+    <% end %>
+    </div>
+
+
+
+
+

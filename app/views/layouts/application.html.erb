@@ -9,18 +9,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <head>
-  
-  
- 
-  </head>
   <body>
-  
     <div id="header" class="grid_5">
-      <h1>My Crypto Portfolio</>
-        
-        <% if logged_in %>
-        <div id="nav">
+      <h1>My Crypto Portfolio</h1> 
+      <% if logged_in %>
+      <div id="nav"> 
         <ul> 
           <li><%= link_to "Crypto Market", markets_path %></li>
           <li><%= link_to "Make a Trade", cryptos_path %></li>
@@ -30,21 +23,18 @@
           </ul>
         </div>
         <% end %>
-        
     </div>
-  
-  
-  <div class="wrapper">
+    <div class="wrapper">
+    <div class="flash-message">
     <% flash.each do |type, msg| %>
       <%= msg %>
     <% end %>
-    <div class="container-fluid">
+    </div>
       <div class="row justify-content-center">
         <div class="col-8">
           <%= yield %>
         </div>
       </div>
     </div>
-  </div>
   </body>
 </html>

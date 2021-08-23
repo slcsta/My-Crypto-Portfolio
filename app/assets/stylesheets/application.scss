@@ -15,9 +15,12 @@
  */
  @import "bootstrap";
  
+
+
  img{
-     border: 5px solid #555
- }
+     border: 5px solid #555;
+     margin: 50px;
+    }
 
  .text-center{
      text-align: center;
@@ -34,25 +37,33 @@
     text-align: center;
 }
 
+#header {
+    padding: 10px;
+    margin: 50px;
+    border: 5px solid gray;
+    background-color: lightyellow
+}
+
 body {
     background-color: lightblue;
+    
 } 
 
 * {
     font-family: Arial, Verdana, sans-serif;
     color: #665544;
-    text-align: left;
-}
-#nav, #feature, .article, #footer {
-    font-size: 20px;
-    background-color: white;
-    margin-top: 20px;
-    padding: 10px 0px 5px 0px;
-    
+    text-align: left; 
 }
 #nav, #feature, .article {
-    height: 50px;
+    font-size: 20px;
+    background-color: gold;
+    border: 5px solid gray;
+    margin-top: 20px;
+    padding: 10px 0px 5px 0px;
+       
 }
+
+
 ul {
     text-align: center;
 }
@@ -61,3 +72,33 @@ li {
     margin-right: 70px;
     padding-top: 35px;
 }
+
+#nav li a {
+    color:#665544;
+}
+
+#nav li a:link {
+    text-decoration: none;
+    font-size: 20px;
+    
+}
+
+#nav li a:hover, nav li a.current {
+    color: #000000;
+}
+
+table {
+    background-color: lightyellow;
+    border: 5px solid gray;
+}
+
+.container {
+
+    background-color: gold;
+ 
+}
+
+.flash-message {
+    margin: 100px;
+}
+
