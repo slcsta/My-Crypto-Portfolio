@@ -3,35 +3,14 @@
     <h1><%= @crypto.name %> - $
     <%= @crypto.price %> USD</h1>
     <h3><%= @crypto.description %></h3>
-
-    <h1><%= link_to "Make a New Trade", new_crypto_trade_path(@crypto) %></h1><br /><br />
-
+    <h1><%= link_to "Make a New Trade", new_crypto_trade_path(@crypto), class:"btn btn-primary btn-lg" %></h1><br /><br />
     <h4>Recent <%= @crypto.name %> Trades</h4>
 <% else %>
     <h3>Recent Trades</h3>
 <% end %>
-<div class="container">
-    <div class="page-header">
 
-<h4>See what other users are trading:</h4>
-<div class="container">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Quantity</th>
-                <th>Crypto</th>
-                <th>Date & Time</th>
-            </tr>
-        </thead>
-        <tbody> 
-            <% @trades.each do |trade| %>
-                <tr><th><%= trade.quantity %></th>
-                <td><%= trade.crypto.name %></td>
-                <td><%= date_time(trade) %></td>
-            <% end %></tr>
-        </tbody>
-    </table>
-</div>    
+<%= render partial: "trades" %>
+
 
 
     

@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="page-header">
+
+<h4>See what other users are trading:</h4>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Crypto</th>
+                <th>Date & Time</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <% @trades.each do |trade| %>
+                <tr><th><%= trade.quantity %></th>
+                <td><%= trade.crypto.name %></td>
+                <td><%= date_time(trade) %></td>
+            <% end %></tr>
+        </tbody>
+    </table>
+</div>    
