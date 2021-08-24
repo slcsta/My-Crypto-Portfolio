@@ -15,8 +15,6 @@
  */
  @import "bootstrap";
  
-
-
  img{
      border: 5px solid #555;
      margin: 50px;
@@ -28,6 +26,16 @@
      margin: 0 auto;
      width: 15%;
  }
+
+ .text-center a {
+    color:#665544;
+    font-size: 20px;
+}
+
+.text-center a:hover, .text-center a.current {
+    color: #000000;
+}
+
  
  h1 {
      text-align: center;
