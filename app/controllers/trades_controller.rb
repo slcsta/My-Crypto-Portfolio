@@ -3,17 +3,9 @@ class TradesController < ApplicationController
     before_action :find_trade, only: [:edit, :update, :destroy]   
 
     def index
-        # if nested, then list only those trades under that crypto:
         if params[:crypto_id] && @crypto = Crypto.find_by_id(params[:crypto_id])
-            # put in find here and have an active record error here
             @trades = @crypto.trades.order_by_created_at
-        # else
-        #     flash[:alert] = "Crypto not found"
-        #     redirect_to cryptos_path
-        # end
-
         else
-            # all the trades not listed under crypto
             @trades = Trade.order_by_created_at
         end
     end
@@ -24,15 +16,10 @@ class TradesController < ApplicationController
     end
 
     def create
-        #byebug
         @trade = current_user.trades.build(trade_params)
         @crypto = Crypto.find_by_id(params[:crypto_id])
-        # params[:crypto_id] && @crypto = Crypto.find_by_id(params[:crypto_id])
-        # @trade = Trade.new(crypto_id: params[:crypto_id])
-        #byebug
         if @trade.save
             flash[:success] = "Success! Your trade is saved!"
-            #byebug
             redirect_to trade_path(@trade)
         else
             flash.now[:error] = "Error! Trade failed!"
@@ -49,12 +36,9 @@ class TradesController < ApplicationController
     end
 
     def edit
-        # rails knows it's an edit request if @trade already exists in the database
-        #@trade = Trade.find_by_id(params[:id])
     end
 
     def update
-        # @trade = Trade.find_by_id(params[:id])
         @trade.update(trade_params)
         if @trade.valid?
             redirect_to trade_path(@trade)
@@ -64,15 +48,12 @@ class TradesController < ApplicationController
     end
 
     def destroy
-        # @trade = Trade.find_by_id(params[:id])
         @trade.destroy
         redirect_to user_path(current_user)
     end
 
 
     private  
-
-    # Only allow safe params
     def trade_params
         params.require(:trade).permit(:description, :quantity, :crypto_id)
     end

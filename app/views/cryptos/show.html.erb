@@ -1,6 +1,6 @@
 <h1><%= @crypto.name %></h1>
 
-<%= link_to "New Trade", new_crypto_trade_path(@crypto) %>
+<h1><%= link_to "Make a New Trade", new_crypto_trade_path(@crypto), class:"btn btn-primary btn-lg" %></h1><br /><br />
 
 <h3><%= @crypto.description %></h3>
 <h3><%= @crypto.symbol %> - $

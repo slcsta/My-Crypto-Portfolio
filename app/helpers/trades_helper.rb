@@ -13,5 +13,4 @@ module TradesHelper
             f.hidden_field :crypto_id, value: @crypto.id
         end
     end
-      
 end
