@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_113101) do
+ActiveRecord::Schema.define(version: 2021_08_24_043705) do
 
   create_table "cryptos", force: :cascade do |t|
     t.string "name"
@@ -20,12 +20,15 @@ ActiveRecord::Schema.define(version: 2021_08_10_113101) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "market_id"
+    t.float "daily_change"
   end
 
   create_table "markets", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.string "proof_of_work"
+    t.string "proof_of_stake"
   end
 
   create_table "trades", force: :cascade do |t|
