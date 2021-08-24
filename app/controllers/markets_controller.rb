@@ -4,5 +4,4 @@ class MarketsController < ApplicationController
         @markets = Market.all
         @cryptos = Crypto.order_by_price  
     end
-
 end

@@ -5,32 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Market.destroy_all
-Crypto.destroy_all
+#User.destroy_all
+#Market.destroy_all
+
 
 #User.create(username: "Sid", email: "sid@gmail.com")
 
 m = Market.create!(name: "Crypto Market")
-m.cryptos.create!(name: "Bitcoin", symbol: "BTC", price: 45365.00)
-m.cryptos.create!(name: "Etehereum", symbol: "ETH", price: 3043.90)
-m.cryptos.create!(name: "Dogecoin", symbol: "DOGE", price: 0.2437390)
-m.cryptos.create!(name: "Cardano", symbol: "ADA", price: 2.11)
-m.cryptos.create!(name: "Binance Coin", symbol: "BNB", price: 402.75)
-m.cryptos.create!(name: "Tether", symbol: "USDT", price: 1.00)
-m.cryptos.create!(name: "XRP", symbol: "XRP", price: 1.27)
-m.cryptos.create!(name: "USD Coin", symbol: "USDC", price: 1.00)
-m.cryptos.create!(name: "Polkadot", symbol: "DOT", price: 22.13)
-m.cryptos.create!(name: "Uniswap", symbol: "UNI", price: 28.81)
-m.cryptos.create!(name: "Solana", symbol: "SOL", price: 47.23)
-m.cryptos.create!(name: "Bitcoin Cash", symbol: "BCH", price: 682.62)
-m.cryptos.create!(name: "Binance USD", symbol: "BUSD", price: 1.00)
-m.cryptos.create!(name: "Litecoin", symbol: "LTC", price: 178.76)
-m.cryptos.create!(name: "Chainlink", symbol: "LINK", price: 26.45)
-m.cryptos.create!(name: "Etereum Classic", symbol: "ETC", price: 71.81)
-m.cryptos.create!(name: "Polygon", symbol: "MATIC", price: 1.41)
-m.cryptos.create!(name: "Wrapped Bitcoin", symbol: "WBTC", price: 45923.26)
-m.cryptos.create!(name: "Stellar", symbol: "XLM", price: 0.37832220)
-m.cryptos.create!(name: "Internet Computer", symbol: "ICP", price: 60.89)
+w = Market.create!(name: "Proof of Work")
+s = Market.create!(name: "Proof of Stake")
+
+w.cryptos.create!(name: "Bitcoin", symbol: "BTC", price: 45365.00, daily_change: -1.6)
+w.cryptos.create!(name: "Etehereum", symbol: "ETH", price: 3043.90, daily_change: -0.3)
+w.cryptos.create!(name: "Dogecoin", symbol: "DOGE", price: 0.2437390, daily_change: -2.9)
+s.cryptos.create!(name: "Cardano", symbol: "ADA", price: 2.11, daily_change: 4.9)
+s.cryptos.create!(name: "Binance Coin", symbol: "BNB", price: 402.75, daily_change: 5.0)
+m.cryptos.create!(name: "Tether", symbol: "USDT", price: 1.00, daily_change: 0.1)
+m.cryptos.create!(name: "XRP", symbol: "XRP", price: 1.27, daily_change: -1.2)
+m.cryptos.create!(name: "USD Coin", symbol: "USDC", price: 1.00, daily_change: 0.2)
+m.cryptos.create!(name: "Polkadot", symbol: "DOT", price: 22.13, daily_change: -2.8)
+m.cryptos.create!(name: "Uniswap", symbol: "UNI", price: 28.81, daily_change: -2.1)
+s.cryptos.create!(name: "Solana", symbol: "SOL", price: 47.23, daily_change: 4.7)
+w.cryptos.create!(name: "Bitcoin Cash", symbol: "BCH", price: 682.62, daily_change: -2.1)
+m.cryptos.create!(name: "Binance USD", symbol: "BUSD", price: 1.00, daily_change: 0.2)
+w.cryptos.create!(name: "Litecoin", symbol: "LTC", price: 178.76, daily_change: -1.4)
+m.cryptos.create!(name: "Chainlink", symbol: "LINK", price: 26.45, daily_change: 0.1)
+w.cryptos.create!(name: "Ethereum Classic", symbol: "ETC", price: 71.81, daily_change: -1.3)
+m.cryptos.create!(name: "Polygon", symbol: "MATIC", price: 1.41, daily_change: -3.1)
+m.cryptos.create!(name: "Wrapped Bitcoin", symbol: "WBTC", price: 45923.26, daily_change: -1.6)
+m.cryptos.create!(name: "Stellar", symbol: "XLM", price: 0.37832220, daily_change: -1.1)
+m.cryptos.create!(name: "Internet Computer", symbol: "ICP", price: 60.89, daily_change: -1.7)
 m.save
+w.save
+s.save
 

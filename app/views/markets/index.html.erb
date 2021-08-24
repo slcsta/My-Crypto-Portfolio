@@ -11,14 +11,18 @@
             <tr>
                 <th>Name</th>
                 <th>Symbol</th>
+                <th>Market</th>
                 <th>Price</th>
+                <th>Daily Change</th>
             </tr>
         </thead>
         <tbody> 
         <% @cryptos.each do |crypto| %>
             <tr><th><%= link_to crypto.name, crypto_path(crypto) %></th>
                     <td><%= crypto.symbol %></td>
+                    <td><%= crypto.market.name %></td>
                     <td>$ <%= crypto.price %> USD</td>
+                    <td><%= crypto.daily_change %>%</td>
                 <% end %></tr>    
     
         </tbody>
