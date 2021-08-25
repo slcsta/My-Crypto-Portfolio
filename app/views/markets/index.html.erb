@@ -1,9 +1,16 @@
+
 <div class="container">
     <div class="page-header">
         <h1>Crypto Market</h1><br />
         <h4><span class="label label-primary"></span></h4>
     </div>
 </div>
+
+<h4>Search:</h4>
+<%= form_tag(markets_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
+<% end %>
 
 <div class="container">
     <table class="table table-striped">
@@ -23,7 +30,7 @@
                     <td><%= crypto.market.name %></td>
                     <td>$ <%= crypto.price %> USD</td>
                     <td><%= crypto.daily_change %>%</td>
-                <% end %></tr>    
+        <% end %></tr>    
     
         </tbody>
     </table>

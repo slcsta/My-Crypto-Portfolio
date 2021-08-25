@@ -1,8 +1,16 @@
 <h1>Make a Trade</h1>
-
 <h3>Select a currency to trade:</h3>
 <div class="text-center pt-1 mb-5 pb-1">
 <% @cryptos.each do |crypto| %>
     <%= link_to crypto.name, crypto_trades_path(crypto) %><br>
 <% end %>
 </div>
+
+
+
+
+
+
+
+
+
