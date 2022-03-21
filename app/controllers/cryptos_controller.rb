@@ -12,4 +12,5 @@ class CryptosController < ApplicationController
 
     def crypto_params
         params.require(:crypto).permit(:name, :crypto_id, :search)
+    end
 end
