@@ -17,14 +17,32 @@ require 'json'
 @url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h'
 @uri = URI(@url)
 @response = Net::HTTP.get(@uri)
+#response = Net::HTTP.get(uri)
 @coins = JSON.parse(@response) 
+@w_coins_array = ["BTC", "ETH", "DOGE", "BCH", "LTC", "ETC"]
+@m_coins_array = [ "USDT", "XRP", "USDC", "DOT", "UNI", "BUSD","LINK","MATIC", "WBTC", "XLM", "ICP"]
+@s_coins_array = ["BNB",  "SOL", "ADA"] 
 
+# take response data and loop through to get needed values
 @coins.each do |coin|
-    byebug 
+    @w_coins_array.each do |w|
+        if w == coin["symbol"]
+            #then create all of the cyrptos from this belonging to w
+            @name = coin["name"]
+        end
+    end
+    byebug
 end 
 
-# @my_coins = ["BTC", "ETH", "DOGE", "ADA", "BNB", "USDT", "XRP", "USDC", "DOT", "UNI", "SOL", "BCH", "BUSD", 
-#     "LTC", "LINK", "ETC", "MATIC", "WBTC", "XLM", "ICP"] 
+#Crypto.create(symbol:, name:, current_price:, price_change_percentage_24h:)
+
+w.cryptos.create!(symbol:, name:, current_price:, price_change_percentage_24h:)
+m.cryptos.create!(symbol:, name:, current_price:, price_change_percentage_24h:)
+s.cryptos.create!(symbol:, name:, current_price:, price_change_percentage_24h:)
+
+
+
+
   
 
 # curl -X 'GET' \
