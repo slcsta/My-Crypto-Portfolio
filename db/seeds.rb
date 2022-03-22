@@ -40,14 +40,18 @@ s = Market.create!(name: "Proof of Stake")
         if mc == coin["symbol"]
             m.cryptos.create!(name: coin["name"], symbol: coin["symbol"], price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
         end
+    end
     
-    
-        if mc == coin["symbol"]
-            m.cryptos.create!(name: coin["name"], symbol: coin["symbol"], price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
+    @s_coins_array.each do |sc|
+        if sc == coin["symbol"]
+            s.cryptos.create!(name: coin["name"], symbol: coin["symbol"], price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
         end
-    
-            byebug
+    end
 end 
+w.save
+m.save
+s.save
+byebug
 #Crypto.create(symbol:, name:, current_price:, price_change_percentage_24h:)
 
 #m.cryptos.create!(symbol:, name:, current_price:, price_change_percentage_24h:)
