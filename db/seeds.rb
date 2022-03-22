@@ -12,14 +12,20 @@
 #User.create(username: "Sid", email: "sid@gmail.com")
 
 require 'net/http'
-        require 'json'
+require 'json'
 
-        @url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h'
-        @uri = URI(@url)
-        @response = Net::HTTP.get(@uri)
-        @coins = JSON.parse(@response) 
-        @my_coins = ["BTC", "ETH", "DOGE", "ADA", "BNB", "USDT", "XRP", "USDC", "DOT", "UNI", "SOL", "BCH", "BUSD", 
-        "LTC", "LINK", "ETC", "MATIC", "WBTC", "XLM", "ICP"] 
+@url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h'
+@uri = URI(@url)
+@response = Net::HTTP.get(@uri)
+@coins = JSON.parse(@response) 
+
+@coins.each do |coin|
+    byebug 
+end 
+
+# @my_coins = ["BTC", "ETH", "DOGE", "ADA", "BNB", "USDT", "XRP", "USDC", "DOT", "UNI", "SOL", "BCH", "BUSD", 
+#     "LTC", "LINK", "ETC", "MATIC", "WBTC", "XLM", "ICP"] 
+  
 
 # curl -X 'GET' \
 #   'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h' \
