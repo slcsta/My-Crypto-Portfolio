@@ -32,43 +32,31 @@ s = Market.create!(name: "Proof of Stake")
 @coins.each do |coin|
     @w_coins_array.each do |wc|
         if wc == coin["symbol"]
-            w.cryptos.create!(name: coin["name"], symbol: coin["symbol"], price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
+            w.cryptos.create!(name: coin["name"], symbol: coin["symbol"].upcase, price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
         end
     end
 
     @m_coins_array.each do |mc|
         if mc == coin["symbol"]
-            m.cryptos.create!(name: coin["name"], symbol: coin["symbol"], price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
+            m.cryptos.create!(name: coin["name"], symbol: coin["symbol"].upcase, price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
         end
     end
     
     @s_coins_array.each do |sc|
         if sc == coin["symbol"]
-            s.cryptos.create!(name: coin["name"], symbol: coin["symbol"], price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
+            s.cryptos.create!(name: coin["name"], symbol: coin["symbol"].upcase, price: coin["current_price"], daily_change: coin["price_change_percentage_24h"])
         end
     end
 end 
 w.save
 m.save
 s.save
-byebug
-#Crypto.create(symbol:, name:, current_price:, price_change_percentage_24h:)
 
-#m.cryptos.create!(symbol:, name:, current_price:, price_change_percentage_24h:)
-#s.cryptos.create!(symbol:, name:, current_price:, price_change_percentage_24h:)
-
-
-
-
-  
-
-# curl -X 'GET' \
-#   'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h' \
-#   -H 'accept: application/json'
+# Coingecko api endpoint
 #   https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h
 
 
-
+# My original hard coded/static data
 # w.cryptos.create!(name: "Bitcoin", symbol: "BTC", price: 45365.00, daily_change: -1.6)
 # w.cryptos.create!(name: "Etehereum", symbol: "ETH", price: 3043.90, daily_change: -0.3)
 # w.cryptos.create!(name: "Dogecoin", symbol: "DOGE", price: 0.2437390, daily_change: -2.9)
