@@ -29,6 +29,7 @@ w = Market.create!(name: "Proof of Work")
 s = Market.create!(name: "Proof of Stake")
 
 # take response data and loop through to get needed values
+
 @coins.each do |coin|
     @w_coins_array.each do |wc|
         if wc == coin["symbol"]
