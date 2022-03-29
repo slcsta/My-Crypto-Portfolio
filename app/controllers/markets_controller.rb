@@ -4,9 +4,9 @@ require 'json'
 class MarketsController < ApplicationController
     def index
         @markets = Market.all
-        #@cryptos = CoingeckoApi.new(params[:crypto]).get_crypto_data
+        CoingeckoApi.new.get_crypto_data
         @cryptos = Crypto.search(params[:search])
-        @cryptos = Crypto.order_by_price 
+        # @crypto = Crypto.find_by_id(params[:crypto_id])
     end
 end
 
