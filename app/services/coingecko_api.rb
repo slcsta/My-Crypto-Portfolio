@@ -21,6 +21,7 @@ class CoingeckoApi
         end
         attributes = crypto_attrs.map { |data|
                 {   
+                    id: data['name'],
                     name: data['name'],
                     symbol: data['symbol'],
                     price: data['current_price'],
@@ -29,7 +30,7 @@ class CoingeckoApi
                     daily_change: data['price_change_percentage_24h']}
                 
         }
-        Crypto.upsert_all(attributes)
+        Crypto.upsert_all(attributes, unique_by: [:id])
     end
 end                
     
