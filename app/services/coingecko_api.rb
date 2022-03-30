@@ -16,22 +16,35 @@ class CoingeckoApi
             crypto_array.each do |arr|
                 if arr == data["symbol"]
                     crypto_attrs.push(data)
+
                 end
             end
         end
-        attributes = crypto_attrs.map { |data|
-                {   
-                    id: data['name'],
-                    name: data['name'],
-                    symbol: data['symbol'],
-                    price: data['current_price'],
-                    created_at: Time.zone.now,
-                    updated_at: Time.zone.now,
-                    daily_change: data['price_change_percentage_24h']}
-                
+        attributes = crypto_attrs.map { |data|  
+            {      
+                name: data['name'],
+                symbol: data['symbol'].upcase,
+                price: data['current_price'],
+                created_at: Time.zone.now,
+                updated_at: Time.zone.now,
+                daily_change: data['price_change_percentage_24h']
+            }
+        #     else 
+        #         return {
+        #             id: data['id'],
+        #             name: data['name'],
+        #             symbol: data['symbol'].upcase,
+        #             price: data['current_price'],
+        #             created_at: data['created_at'],
+        #             updated_at: data['updated_at'],
+        #             market_id: data['market_id'],
+        #             daily_change: data['price_change_percentage_24h']
+        #         }
+        #    end        
         }
-        Crypto.upsert_all(attributes, unique_by: [:id])
-    end
-end                
+        byebug
+        Crypto.upsert_all(attributes)
+        end
+    end                
     
     
